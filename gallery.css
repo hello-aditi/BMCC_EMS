@@ -1,0 +1,114 @@
+/* filters container */
+.filters {
+    display: flex;
+    /* padding: 15px; */
+    /* border: 1px black solid; */
+    border-radius: 8px;
+}
+
+.filters select {
+    width: 200px;
+    margin: 7px;
+    font-family: 'Poppins', 'Sans Serif';
+    font-size: 15px;
+}
+
+.filters select:hover {
+    background-color: #00344ee8;
+    color: rgb(255, 255, 255);
+
+}
+
+.search1 {
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    padding: 3px;
+    width: 250px;
+    margin-left: 5cm;
+    border: none;
+}
+
+.search1:hover {
+    background-color: #00344ee8;
+    color: rgb(255, 255, 255);
+
+}
+
+.resetButton {
+    background-color: #00344ee8;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 1cm;
+    padding: 8px;
+}
+
+.resetButton:hover {
+    background-color: #ffffffe8;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    /* transition: 0.5s; */
+}
+
+
+/* content div */
+
+.event-container {
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 20px;
+    /* background-color: #f9f9f9; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    /* background-color: rgb(152, 154, 255); */
+}
+
+.imageDiv {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.imageDiv img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.imageDiv img:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s ease-in-out;
+}
+
+.buttonG {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.buttonG a {
+    padding: 10px;
+    background-color: #00344ee8;
+    text-decoration: none;
+    color: white;
+    border-radius: 6px;
+}
+
+.buttonG a .prevPageDisabled {
+    background-color: gray;
+    color: white;
+
+}
+.buttonG a .nextPageDisabled {
+    background-color: gray;
+    color: white;
+
+}

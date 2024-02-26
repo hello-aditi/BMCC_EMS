@@ -1,0 +1,25 @@
+.logoutDiv{ 
+    text-align: center;
+}
+.logoutButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00344ee8;
+    border: white solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.logoutButton a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.logoutButton:hover {
+    background-color: #4b97bde8;
+    border: black solid 1px; /* Darker red on hover */
+}

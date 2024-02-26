@@ -1,0 +1,93 @@
+.registration {
+    color: rgb(226, 217, 217);
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 4px 2px 4px 4px rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    background-color: #00344ee8;
+    width: 550px;
+    border-radius: 70px;
+}
+
+.registration h1 {
+    text-align: center;
+
+}
+input[type="text"],
+input[type="email"],
+select
+ {
+    width: 45%;
+    margin-left: 30px;
+    float: right;
+    padding: 4px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 16px;
+}
+label {
+    text-align: right;
+}
+
+/* input {
+    margin-left: 30px;
+    float: right;
+
+} */
+
+select {
+    float: right;
+}
+
+input.ng-invalid {
+    border: 1px solid red;
+}
+
+.error {
+    margin: 0;
+    text-align: center;
+    color: red;
+    font-size: large;
+}
+
+.success {
+    color: rgb(243, 248, 242);
+}
+
+.registerBtn {
+    background-color: #00344ee8;
+    color: whitesmoke;
+    border: none;
+    padding: 15px;
+    border-radius: 40px;
+    transition: 0.4s;
+    font-family: 'Poppins', 'Sans Serif';
+    font-size: large;
+}
+
+.registerBtn:hover {
+    background-color: lightgray;
+    color: black;
+    cursor: pointer;
+}
+
+fieldset {
+    padding: 20px;
+    border: solid 0.75px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+legend {
+    text-align: center;
+}
+
+.req {
+    text-align: end;
+    margin-left: 5px;
+    color: red;
+}
+
+.labelField {
+    display: inline-flex;
+}
