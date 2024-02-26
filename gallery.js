@@ -1,6 +1,6 @@
 eventApp.controller('galleryCtrl', function ($scope, $http, $log) {
 
-  $http.get('data/gallery.json').then(function (response) {
+  $http.get('gallery.json').then(function (response) {
     $scope.events = response.data;
     //$log.info($scope.events);
 
