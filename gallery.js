@@ -1,42 +1,53 @@
-eventApp.filter('yearFilter', function () {
-  return function (input, byYear) {
-    var output = [];
+eventApp.controller('galleryCtrl', function ($scope, $http, $log) {
 
-    if (byYear === "") {
-      return input;
-    }
-    else {
-      angular.forEach(input, function (value, key) {
-        if (value.eventYear == byYear) {
-          output.push(value);
-        }
-      });
-      return output;
-    }
+  $http.get('data/gallery.json').then(function (response) {
+    $scope.events = response.data;
+    //$log.info($scope.events);
 
-  }
-});
+  }, function (error) {
+    $log.error('Error loading JSON file:', error);
+  });
 
-eventApp.filter('eventFilter', function () {
-  return function (input, byEvent) {
-    var output = [];
+  $scope.byYear = "";
+  $scope.byEvent = "";
 
-    if (byEvent === "") {
-      return input;
-    }
-    else {
-      angular.forEach(input, function (value, key) {
-        if (value.eventName === byEvent) {
-          output.push(value)
-        }
-      });
-      return output;
-    }
-  }
-});
-
-eventApp.filter('offset', function () {
-  return function (input, start) {
-    return input.slice(start);
+  // for resetting all the filters
+  $scope.resetFilters = function () {
+    $scope.byYear = "";
+    $scope.byEvent = "";
   };
+
+  $scope.recordsPerPage = 8;
+  $scope.currentPage = 0;
+  $scope.events = [];
+
+
+    $scope.prevPage = function () {
+        if ($scope.currentPage > 0) {
+            $scope.currentPage--;
+        }
+    };
+
+    /* Disable previous page link for the first page */
+    $scope.prevPageDisabled = function () {
+        return $scope.currentPage === 0 ? "disabled" : "";
+    };
+
+    $scope.nextPage = function () {
+        if ($scope.currentPage < $scope.pageCount()) {
+            $scope.currentPage++;
+        }
+    };
+
+    /* Disable next page link for the last page */
+    $scope.nextPageDisabled = function () {
+        return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
+    };
+
+    $scope.pageCount = function () {
+        return Math.ceil($scope.events.length / $scope.recordsPerPage) - 1;
+    };
+
 });
+
+
