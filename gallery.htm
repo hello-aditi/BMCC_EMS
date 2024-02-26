@@ -1,0 +1,48 @@
+<div ng-controller="galleryCtrl" class="galleryDiv">
+
+
+    <div class="filters">
+
+        <input type="text" ng-model="searchText" placeholder="Search" class="search1"> 
+
+        <select ng-model="byYear">
+            <option value="">Filter By Year</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select> 
+
+        <select ng-model="byEvent">
+            <option value="">Filter By Event</option>
+            <option value="Troika">Troika</option>
+            <option value="Astitva">Astitva</option>
+            <option value="Emerge">Emerge</option>
+            <option value="ED-Cell">ED</option>
+            <option value="Cultural">Cultural</option>
+            <option value="Nature-Club">Nature Club</option>
+        </select>
+
+        <button ng-click="resetFilters()" class="resetButton">Reset Filter</button>
+
+    </div>
+
+    <div>
+        <div class="event-container">
+            <div ng-repeat="e in events | yearFilter: byYear | eventFilter:byEvent 
+            | filter: searchText | offset: currentPage*recordsPerPage | limitTo: recordsPerPage" class="eventDiv">
+            <div class="imageDiv">
+                <img src="{{ e.eventImage }}" alt="Image">
+            </div>
+            <div style="font-weight: bold;">{{e.eventName}}</div>
+            <div style="font-weight: bold;">{{e.eventYear}}, {{e.eventMonth}}</div>
+        </div>
+    </div>
+</div>
+<div class="button" ng-class="disabled">
+    <a href ng-click="prevPage()" ng-class="prevPageDisabled()">« Prev</a>
+    &nbsp;&nbsp;{{currentPage+1}}&nbsp;&nbsp;
+    <a href ng-click="nextPage()" ng-class="nextPageDisabled()">Next »</a>
+</div>
+</div>

@@ -1,0 +1,48 @@
+<div class="parent" ng-controller="eventCtrl">
+    <div class="filters">
+        <!-- Sorting Methods -->
+        <div class="sort">
+            <select ng-model="sortMethod">
+                <option value="select">--Sort Alphabetically--</option>
+                <option value="event">A-Z</option>
+                <option value="-event">Z-A</option>
+            </select>
+        </div>
+        <input class="search" placeholder="Search Events" type="text" ng-model="searchText.event" />
+
+        <!-- Filters by Month  -->
+        <div class="timeFilter">
+            <select ng-model="timePeriod">
+                <option value="select">--Filter By Time Period--</option>
+                <option value="January-March">January-March</option>
+                <option value="June-August">June-August</option>
+                <option value="August-October">August-October</option>
+                <option value="October-December">October-December</option>
+            </select>
+            <tr>
+                <td><button ng-click="resetFilters()">Reset Filters</button></td>
+            </tr>
+        </div>
+    </div>
+    <!-- Event information -->
+
+    <div class="eventInfo"
+        ng-repeat="x in eventInfo | periodFilter : timePeriod | filter: searchText | orderBy: sortMethod | offset : displayPage*eventsPerPage | limitTo: eventsPerPage">
+
+        <div class="winner">
+            <img class="img1" ng-src="{{x.img}}" alt="img1">
+            <div class="imgover">
+                <div class="title">{{x.event}}</div>
+            </div>
+        </div>
+        <div class="info" ng-model="event">
+            <h1>{{x.event}}</h1>
+            <h3>{{x.abt}}</h3>
+        </div>
+    </div>
+    <div class="button">
+        <a href ng-click="back()" ng-class="backFreeze()"> -- Prev</a>
+        <h2>{{displayPage+1}}</h2>
+        <a href ng-click="next()" ng-class="nextFreeze()">Next -- </a>
+    </div>
+</div>

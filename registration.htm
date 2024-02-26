@@ -1,0 +1,74 @@
+<!-- Registration Form for all the events -->
+<div class="registration" ng-controller="registrationCtrl">
+    <h1>Registration Form</h1>
+    <form name="eventForm" ng-submit="submitForm(eventForm.$valid)">
+        <div ng-show="!formSubmitted">
+            <div class="instructions">
+                <ol type="1">
+                    <li>The form can only be filled once.</li>
+                    <li>Each form should have unique email address.</li>
+                    <li>The email address should be working or active as the participation certificate would be emailed
+                        to the participant.</li>
+                    <li>Registration once confirmed, will not be cancelled.</li>
+                </ol>
+            </div>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="labelField">
+                    <label>Full Name: </label>
+                    <div class="req"><!-- directive: required-field --></div>
+                </div>
+                <input type="text" id="name" name="name" ng-model="user.name" required><br><br>
+                <div class="error" ng-if="eventForm.name.$dirty && eventForm.name.$error.required">Name is required.
+                </div>
+                <div class="labelField">
+                    <label>Email:</label>
+                    <div class="req"><!-- directive: required-field --></div>
+                </div>
+                <input type="email" id="email" name="email" ng-model="user.email" required><br>
+                <div class="error" ng-if="eventForm.email.$dirty && eventForm.email.$error.required " required>Email
+                    is
+                    required.</div>
+                <div class="error" ng-if="eventForm.email.$dirty && eventForm.email.$error.email">Invalid email
+                    format.
+                </div>
+                <br>
+                <div class="labelField">
+                    <label>Select Course:</label>
+                    <div class="req"><!-- directive: required-field --></div>
+                </div>
+                <select>
+                    <option value="">Course</option>
+                    <option value="1">BBA</option>
+                    <option value="2">BBA-IB</option>
+                    <option value="3">BBA-CA</option>
+                    <option value="4">B.Com</option>
+                    <option value="5">B.Com FINTECH</option>
+                    <option value="6">B.Com HONS</option>
+                </select><br><br>
+                <div class="labelField">
+                    <label>Select Event:</label>
+                    <div class="req"><!-- directive: required-field --></div>
+                </div>
+                <select required ng-model="user.event">
+                    <option value="">Select Event</option>
+                    <option value="Troika">Troika</option>
+                    <option value="Astitva">Astitva</option>
+                    <option value="Emerge">Emerge</option>
+                    <option value="ED-CELL">ED-Cell</option>
+                </select>
+                <br><br>
+            </fieldset>
+            <!-- ... (Other form fields) ... -->
+            <center><button type="submit" class="registerBtn" ng-disabled="eventForm.$invalid"
+                    ng-click="registerSubmit()">Register</button>
+            </center>
+        </div>
+
+    </form>
+    <div ng-show="successMessage">
+        <h2 style="color: rgb(253, 158, 222); text-align: center;">Thankyou for registering for {{user.event}} event
+           <br> <span ng-bind="user.name" style="text-decoration: underline;"></span> <br> We will get back to you soon on
+            {{user.email}}</h2>
+
+    </div>
