@@ -2,7 +2,7 @@ eventApp.controller('homeCtrl', function ($scope, $interval) {
     $scope.title = "Home Page";
     $scope.Abt = "About Us"
     var img = document.querySelector(".slide");
-    var images = ['/BMCCEventMgmt/images/cultural.jpg', '/BMCCEventMgmt/images/emerge.jpg', '/BMCCEventMgmt/images/troika.jpg'];
+    var images = ['cultural.jpg', 'emerge.jpg', 'troika.jpg'];
     var num = 0;
 
     $scope.next = function () {
