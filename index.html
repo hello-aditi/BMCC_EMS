@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/ems_new.jpg" type="image/x-icon">
+    <title>Event Management System</title>
+    <!--Script Files-->
+    <script src="libs/angular.js"></script>
+    <script src="libs/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/registration.js"></script>
+    <script src="controllers/events.js"></script>
+    <script src="controllers/home.js"></script>
+    <script src="controllers/gallery.js"></script>
+    <script src="filters/gallery.js"></script>
+    <script src="services/properCaseService.js"></script>
+    <script src="directives/requiredField.js"></script>
+    <!--CSS Files-->
+    <link rel="stylesheet" href="/BMCCEventMgmt/css/home.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/masterCSS.css">
+    <link rel="stylesheet" href="/BMCCEventMgmt/css/events.css">
+    <link rel="stylesheet" href="/BMCCEventMgmt/css/gallery.css">
+    <link rel="stylesheet" href="/BMCCEventMgmt/css/registration.css">
+    <link rel="stylesheet" href="/BMCCEventMgmt/css/logout.css">
+</head>
+
+<body ng-app="eventApp">
+    <!--header of the page-->
+    <div class="header" style="background: url(images/blueDesign.png);">
+        <h1>Welcome to EventSphere - BMCC's EMS</h1>
+    </div>
+    <marquee behavior="reverse" direction="scroll">Stay Tuned for Upcoming Events !!!
+    </marquee>
+    <!--Written for better understanding of SPA -->
+    <div>
+        <ng-view></ng-view>
+    </div>
+
+    <!--navigation bar for various options under Single Page Applications-->
+    <div class="topnav" style=" background-color: #00344ee8;">
+        <a href="#!/home">Home</a>
+        <a href="#!/events">Events</a>
+        <a href="#!/gallery">Gallery</a>
+        <a href="#!/registration">Registration</a>
+        <a href="#!/logout">Log Out</a>
+    </div>
+</body>
+
+</html>
