@@ -4,7 +4,7 @@ eventApp.controller('eventCtrl', function ($scope, $http, $log) {
     $scope.timePeriod = "select";
 
 
-    $http.get('/BMCCEventMgmt/data/eventInfo.json').then(function (response) {
+    $http.get('eventInfo.json').then(function (response) {
         $scope.eventInfo = response.data;
     });
     $scope.resetFilters = function () {
